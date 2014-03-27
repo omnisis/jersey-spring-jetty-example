@@ -9,3 +9,5 @@
 .idea/
 target/
 file-service.iml
+
+.DS_Store

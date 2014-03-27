@@ -1,0 +1,26 @@
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+    <Call name="addConnector">
+    <Arg>
+        <New class="org.eclipse.jetty.server.ssl.SslSelectChannelConnector">
+            <Arg>
+                <New class="org.eclipse.jetty.util.ssl.SslContextFactory">
+                    <Set name="keyStore">src/test/resources/certs/server.jks</Set>
+                    <Set name="keyStorePassword">secret</Set>
+                    <!--<Set name="keyManagerPassword">secret</Set>-->
+                    <Set name="trustStore">src/test/resources/certs/server-trust.jks</Set>
+                    <Set name="trustStorePassword">secret</Set>
+                    <Set name="needClientAuth">true</Set>
+                    <Set name="trustAll">true</Set>
+                </New>
+            </Arg>
+            <Set name="port">9443</Set>
+            <Set name="maxIdleTime">30000</Set>
+            <Set name="Acceptors">2</Set>
+            <Set name="statsOn">false</Set>
+            <Set name="lowResourcesConnections">20000</Set>
+            <Set name="lowResourcesMaxIdleTime">5000</Set>
+
+        </New>
+    </Arg>
+</Call>
+</Configure>
